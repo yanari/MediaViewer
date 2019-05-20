@@ -1,0 +1,17 @@
+:local(.wrapper) {
+  display: flex;
+  background: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  justify-content: center;
+  position: relative;
+}
+
+:local(.wrapper) > caption {
+  color: white;
+}
+
+:local(.wrapper) img {
+  height: 100vh;
+  position: absolute;
+  width: auto;
+}
