@@ -47,6 +47,8 @@ function TransitionRenderProps (props) {
             return <animated.ul className = {className} style = {style}>{children}</animated.ul>;
           } else if (tag === 'nav') {
             return <animated.nav className = {className} style = {style}>{children}</animated.nav>;
+          } else if (tag === 'figure') {
+            return <animated.figure className = {className} style = {style}>{children}</animated.figure>;
           } else {
             return <animated.div className = {className} onClick = {handleClick} style = {style}>{children}</animated.div>;
           }
@@ -64,7 +66,7 @@ TransitionRenderProps.propTypes = {
   openHeight: PropTypes.number,
   preset: PropTypes.oneOf(['fadeInOut', 'toggle', 'toggleFadeInOut']).isRequired,
   show: PropTypes.bool,
-  tag: PropTypes.oneOf(['div', 'nav', 'ul']),
+  tag: PropTypes.oneOf(['div', 'figure', 'nav', 'ul']),
 };
 
 TransitionRenderProps.defaultProps = {

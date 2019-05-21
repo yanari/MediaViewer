@@ -1,39 +1,60 @@
 import styles from './Lightbox.module.css';
 
 import React, {useState, useEffect, useRef} from 'react';
-import cn from 'classnames';
+import PropTypes from 'prop-types';
 import MountTransition from './MountTransition';
 import {isOutsideClick} from '../utils/helper';
 
-function Lightbox ({handleRequestClose, image, open}) {
+function Lightbox (props) {
+  const {
+    currentImage,
+    images,
+    isOpen,
+    onClickNext,
+    onClickPrev,
+    onClose,
+  } = props;
   const refImage = useRef();
   
-  const handleClick = (e) => {
-    console.log(123);
+  const handleClose = (e) => {
     if (refImage.current && isOutsideClick(e, refImage.current)) {
-      handleRequestClose();
+      onClose();
     }
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleClick);
-    return () => document.removeEventListener('click', handleClick);
-  }, [open]);
+    document.addEventListener('click', handleClose);
+    return () => document.removeEventListener('click', handleClose);
+  }, [isOpen]);
 
   return (
     <MountTransition
       className = {styles.wrapper}
       preset = "fadeInOut"
-      show = {open}
+      show = {isOpen}
     >
-      <img
-        alt = {image.caption}
-        ref = {refImage}
-        src = {image.src}
-      />
-      <caption>asldhlkash</caption>
+      <figure>
+        <img
+          alt = {currentImage.caption}
+          ref = {refImage}
+          src = {currentImage.src}
+        />
+      </figure>
     </MountTransition>
   );
 }
+
+Lightbox.propTypes = {
+  currentImage: PropTypes.number,
+  images: PropTypes.array,
+  isOpen: PropTypes.bool,
+  onClickNext: PropTypes.func,
+  onClickPrev: PropTypes.func,
+  onClose: PropTypes.func,
+}
+
+Lightbox.defaultProps = {
+  currentImage: 0,
+};
 
 export default Lightbox;
