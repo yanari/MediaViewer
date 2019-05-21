@@ -30,6 +30,8 @@ function App() {
       <Lightbox
         currentImage = {imagesList[currentImage]}
         images = {imagesList}
+        onClickNext = {() => setCurrentImage(currentImage + 1)}
+        onClickPrev = {() => setCurrentImage(currentImage - 1)}
         onClose = {() => setShow(false)}
         isOpen = {show}
       />

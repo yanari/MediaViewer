@@ -11,11 +11,31 @@
   width: 100%;
 }
 
-:local(.wrapper) > figure {
+:local(.figure) {
   margin: 0;
 }
 
-:local(.wrapper) img {
+:local(.buttonLeft) {
+  position: absolute;
+  left: 0;
+  top: 50vh;
+}
+
+:local(.buttonLeft) svg {
+  color: white;
+}
+
+:local(.buttonRight) {
+  position: absolute;
+  right: 0;
+  top: 50vh;
+}
+
+:local(.buttonRight) svg {
+  color: white;
+}
+
+:local(.figure) > img {
   height: 90vh;
   width: auto;
 }
