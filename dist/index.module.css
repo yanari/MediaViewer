@@ -15,14 +15,7 @@
   margin: 0;
 }
 
-
 :local(.figure) > img {
   height: 90vh;
   width: auto;
-}
-
-:local(.placeholder) {
-  background: red;
-  color: white;
-  font-size: 4rem;
 }

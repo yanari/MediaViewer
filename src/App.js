@@ -1,9 +1,9 @@
 import React from 'react';
-import Ok from './example/App';
+import Example from './example/Example';
 
 function App() {
   return (
-    <Ok/>
+    <Example/>
   );
 }
 

@@ -1,9 +1,9 @@
 import React, {Fragment, useState} from 'react';
-import Lightbox from '../components/Lightbox';
+import Lightbox from '../Lightbox/index';
 
-import './App.css';
+import './Example.css';
 
-function App() {
+function Example () {
   const [show, setShow] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const imagesList = [
@@ -39,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export default Example;

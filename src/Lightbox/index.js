@@ -1,9 +1,9 @@
-import styles from './Lightbox.module.css';
+import styles from './index.module.css';
 
 import React, {useCallback, useEffect, useRef} from 'react';
 import MountTransition from 'mount-transition';
 import PropTypes from 'prop-types';
-import Arrow from './Arrow';
+import Arrow from '../components/Arrow';
 
 function Lightbox (props) {
   const {

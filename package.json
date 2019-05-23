@@ -1,7 +1,10 @@
 {
   "name": "lightbox",
   "version": "0.1.0",
-  "private": true,
+  "author": {
+    "name": "Marcelle Yanari",
+    "email": "yanarimy@gmail.com"
+  },
   "dependencies": {
     "classnames": "^2.2.6",
     "mount-transition": "^0.1.1",
@@ -13,7 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set NODE_ENV=production && rm -rf dist && mkdir dist && npx babel src/Lightbox --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -31,5 +34,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "babel": {
+    "presets": [ "react", "env", "stage-2" ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yanari/Lightbox"
   }
 }
