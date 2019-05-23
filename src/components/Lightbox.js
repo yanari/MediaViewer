@@ -1,8 +1,8 @@
 import styles from './Lightbox.module.css';
 
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
+import MountTransition from 'mount-transition';
 import PropTypes from 'prop-types';
-import MountTransition from './MountTransition';
 import Arrow from './Arrow';
 
 function Lightbox (props) {
@@ -19,18 +19,18 @@ function Lightbox (props) {
   const hasLeftArrow = images[0] !== currentImage;
   const hasRightArrow = images[images.length - 1] !== currentImage;
 
-  const handleClose = (e) => {
+  const handleClose = useCallback((e) => {
     if (e.target.contains(refLeftArrow.current) || e.target.contains(refRightArrow.current)) {
       onClose();
     }
-  }
+  }, [onClose]);
   
   useEffect(() => {
     document.addEventListener('click', handleClose);
     return () => {
       document.removeEventListener('click', handleClose);
     };
-  }, [isOpen])
+  }, [isOpen, handleClose])
 
   return (
     <MountTransition
@@ -65,16 +65,12 @@ function Lightbox (props) {
 }
 
 Lightbox.propTypes = {
-  currentImage: PropTypes.instanceOf(Object),
-  images: PropTypes.array,
-  isOpen: PropTypes.bool,
-  onClickNext: PropTypes.func,
-  onClickPrev: PropTypes.func,
-  onClose: PropTypes.func,
+  currentImage: PropTypes.instanceOf(Object).isRequired,
+  images: PropTypes.array.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onClickNext: PropTypes.func.isRequired,
+  onClickPrev: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 }
-
-Lightbox.defaultProps = {
-  currentImage: 0,
-};
 
 export default Lightbox;

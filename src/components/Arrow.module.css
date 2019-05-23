@@ -4,10 +4,6 @@
   top: 50vh;
 }
 
-:local(.button):active .svg {
-  color: red;
-}
-
 :local(.left) {
   left: 0;
 }

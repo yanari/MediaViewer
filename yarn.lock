@@ -6531,6 +6531,16 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   dependencies:
     minimist "0.0.8"
 
+mount-transition@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/mount-transition/-/mount-transition-0.1.1.tgz#a2c31ef582ad040650ffb4b1e6b7b67718bb2be3"
+  integrity sha512-v8SCO8PkI2R0piKQylIDuAxmVlE66pjNzjDPbeMmB2F1TEshbWcntt966GpW+lI3IS3+MF9GVDX29N8ilLRwAw==
+  dependencies:
+    react "^16.8.6"
+    react-dom "^16.8.6"
+    react-scripts "3.0.1"
+    react-spring "^8.0.20"
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
