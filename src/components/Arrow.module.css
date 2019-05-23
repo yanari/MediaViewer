@@ -1,0 +1,23 @@
+:local(.button) {
+  outline: none;
+  position: absolute;
+  top: 50vh;
+}
+
+:local(.button):active .svg {
+  color: red;
+}
+
+:local(.left) {
+  left: 0;
+}
+
+:local(.right) {
+  right: 0;
+}
+
+:local(.button) svg {
+  color: white;
+  height: 54px !important;
+  width: 54px !important;
+}

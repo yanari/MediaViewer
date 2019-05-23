@@ -1,10 +1,9 @@
 import styles from './Lightbox.module.css';
 
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import MountTransition from './MountTransition';
-import SvgIcon from './SvgIcon';
-import {isOutsideClick} from '../utils/helper';
+import Arrow from './Arrow';
 
 function Lightbox (props) {
   const {
@@ -15,18 +14,23 @@ function Lightbox (props) {
     onClickPrev,
     onClose,
   } = props;
-  const refImage = useRef();
-  
+  const refLeftArrow = useRef();
+  const refRightArrow = useRef();
+  const hasLeftArrow = images[0] !== currentImage;
+  const hasRightArrow = images[images.length - 1] !== currentImage;
+
   const handleClose = (e) => {
-    if (refImage.current && isOutsideClick(e, refImage.current)) {
+    if (e.target.contains(refLeftArrow.current) || e.target.contains(refRightArrow.current)) {
       onClose();
     }
-  };
-
+  }
+  
   useEffect(() => {
     document.addEventListener('click', handleClose);
-    return () => document.removeEventListener('click', handleClose);
-  }, []);
+    return () => {
+      document.removeEventListener('click', handleClose);
+    };
+  }, [isOpen])
 
   return (
     <MountTransition
@@ -38,17 +42,24 @@ function Lightbox (props) {
         <figure className = {styles.figure}>
           <img
             alt = {currentImage.caption}
-            ref = {refImage}
             src = {currentImage.src}
           />
         </figure>
-        <button className = {styles.buttonLeft} onClick = {onClickPrev}>
-          <SvgIcon name = "feather-chevron-left"/>
-        </button>
-        <button className = {styles.buttonRight} onClick = {onClickNext}>
-          <SvgIcon name = "feather-chevron-right"/>
-        </button>
       </div>
+      {hasLeftArrow ? (
+        <Arrow
+          direction = "left"
+          onClick = {onClickPrev}
+          refArrow = {refLeftArrow}
+        />
+      ) : null}
+      {hasRightArrow ? (
+        <Arrow
+          direction = "right"
+          onClick = {onClickNext}
+          refArrow = {refRightArrow}
+        />
+      ) : null}
     </MountTransition>
   );
 }
