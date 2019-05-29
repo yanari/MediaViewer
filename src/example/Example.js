@@ -7,10 +7,10 @@ function Example () {
   const [show, setShow] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const imagesList = [
-    {caption: '1', src: 'https://images.unsplash.com/photo-1556909172-8c2f041fca1e'},
-    {caption: '2', src: 'https://images.unsplash.com/photo-1558208846-f197910b7707'},
-    {caption: '3', src: 'https://images.unsplash.com/photo-1558197385-575ecbf37bef'},
-    {caption: '4', src: 'https://images.unsplash.com/photo-1558239184-be7815bc8965'},
+    {caption: 'sa;daslkdha;klsdh salkdhalsd sahdas', src: 'https://images.unsplash.com/photo-1556909172-8c2f041fca1e'},
+    {caption: 'aslkjd lskja lksjd jal', src: 'https://images.unsplash.com/photo-1558208846-f197910b7707'},
+    {caption: 'Linda imagem parabéns!!!!', src: 'https://images.unsplash.com/photo-1558197385-575ecbf37bef'},
+    {caption: 'Outra maravilhosa imagem', src: 'https://images.unsplash.com/photo-1558239184-be7815bc8965'},
   ];
 
   const handleOpenImage = (index) => {

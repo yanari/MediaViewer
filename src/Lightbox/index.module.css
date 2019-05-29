@@ -10,12 +10,3 @@
   top: 0;
   width: 100%;
 }
-
-:local(.figure) {
-  margin: 0;
-}
-
-:local(.figure) > img {
-  height: 90vh;
-  width: auto;
-}

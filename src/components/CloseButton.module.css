@@ -1,0 +1,14 @@
+:local(.wrapper) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+:local(.wrapper) > button {
+  outline: none;
+}
+
+:local(.wrapper) svg {
+  color: white;
+  height: 36px !important;
+  width: 36px !important;
+}

@@ -1,4 +1,4 @@
-:local(.button) {
+:local(.wrapper) {
   outline: none;
   position: absolute;
   top: 50vh;
@@ -12,8 +12,8 @@
   right: 0;
 }
 
-:local(.button) svg {
+:local(.wrapper) svg {
   color: white;
-  height: 54px !important;
-  width: 54px !important;
+  height: 56px !important;
+  width: 56px !important;
 }

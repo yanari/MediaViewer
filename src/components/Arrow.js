@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
 import SvgIcon from './SvgIcon';
 
 function Arrow (props) {
-  const {direction, onClick, refArrow} = props;
+  const {direction, onClick} = props;
   const classSet = cn(
-    styles.button,
+    styles.wrapper,
     direction === 'left' ? styles.left : styles.right
   );
   return (
-    <button className = {classSet} onClick = {onClick} ref = {refArrow}>
+    <button className = {classSet} onClick = {onClick}>
       <SvgIcon name = {`feather-chevron-${direction}`}/>
     </button>
   );
@@ -21,7 +21,6 @@ function Arrow (props) {
 Arrow.propTypes = {
   direction: PropTypes.oneOf(['left', 'right']),
   onClick: PropTypes.func,
-  refArrow: PropTypes.instanceOf(Object)
 };
 
 export default Arrow;
