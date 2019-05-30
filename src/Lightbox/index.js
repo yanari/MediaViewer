@@ -1,11 +1,17 @@
 import styles from './index.module.css';
 
-import React from 'react';
+import React, {useEffect} from 'react';
+import MountTransition from 'mount-transition';
 import PropTypes from 'prop-types';
-import Arrow from '../components/Arrow';
+import Arrows from '../components/Arrows';
 import CloseButton from '../components/CloseButton';
 import Figure from '../components/Figure';
+import Portal from '../components/Portal';
+import ModalAnimation from '../components/ModalAnimation';
 
+/**
+ * @return {null}
+ */
 function Lightbox (props) {
   const {
     currentImage,
@@ -15,29 +21,28 @@ function Lightbox (props) {
     onClickPrev,
     onClose,
   } = props;
-  const hasLeftArrow = images[0] !== currentImage;
-  const hasRightArrow = images[images.length - 1] !== currentImage;
-
-  return isOpen ? (
-    <div className = {styles.wrapper}>
-      <div className = {styles.content}>
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'auto';
+  }, [isOpen]);
+  return (
+    <MountTransition
+      className = {styles.wrapper}
+      preset = "fadeInOut"
+      show = {isOpen}
+    >
+      <ModalAnimation isOpen = {isOpen}>
         <CloseButton onClick = {onClose}/>
         <Figure image = {currentImage}/>
-      </div>
-      {hasLeftArrow ? (
-        <Arrow
-          direction = "left"
-          onClick = {onClickPrev}
-        />
-      ) : null}
-      {hasRightArrow ? (
-        <Arrow
-          direction = "right"
-          onClick = {onClickNext}
-        />
-      ) : null}
-    </div>
-  ) : null;
+      </ModalAnimation>
+      <Arrows
+        currentImage = {currentImage}
+        images = {images}
+        onClickNext = {onClickNext}
+        onClickPrev = {onClickPrev}
+      />
+    </MountTransition>
+  );
 }
 
 Lightbox.propTypes = {
@@ -47,6 +52,6 @@ Lightbox.propTypes = {
   onClickNext: PropTypes.func.isRequired,
   onClickPrev: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
-}
+};
 
-export default Lightbox;
+export default Portal('portal')(Lightbox);

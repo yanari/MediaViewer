@@ -2,6 +2,7 @@
   outline: none;
   position: absolute;
   top: 50vh;
+  transition: filter 0.5s;
 }
 
 :local(.left) {
@@ -14,6 +15,10 @@
 
 :local(.wrapper) svg {
   color: white;
-  height: 56px !important;
-  width: 56px !important;
+  height: 48px !important;
+  width: 48px !important;
+}
+
+:local(.wrapper):hover svg {
+  filter: brightness(0.8);
 }

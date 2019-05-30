@@ -22,7 +22,11 @@ function Example () {
     <Fragment>
       {imagesList.map((data, index) => {
         return (
-          <button className = "thumbnail" onClick = {() => handleOpenImage(index)}>
+          <button
+            className = "thumbnail"
+            key = {data.src}
+            onClick = {() => handleOpenImage(index)}
+          >
             <img alt = {data.caption} src = {data.src}/>
           </button>
         );
