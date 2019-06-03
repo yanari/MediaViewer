@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Arrows from '../components/Arrows';
 import CloseButton from '../components/CloseButton';
 import Image from '../components/Image';
+import ImageCaption from '../components/ImageCaption';
 import Portal from '../components/Portal';
 
 function Lightbox (props) {
@@ -28,6 +29,11 @@ function Lightbox (props) {
       isMounted = {isOpen}
     >
       <Image image = {currentImage}/>
+      <ImageCaption
+        className = "image-caption"
+        image = {currentImage}
+        images = {images}
+      />
       <CloseButton onClick = {onClose}/>
       <Arrows
         currentImage = {currentImage}

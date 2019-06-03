@@ -10,3 +10,14 @@
   top: 0;
   width: 100%;
 }
+
+.wrapper .image-caption {
+  opacity: 0;
+  transition: .3s opacity;
+  transition-delay: 3s;
+}
+
+.wrapper:hover .image-caption {
+  opacity: 1;
+  transition-delay: .1s;
+}
