@@ -1,7 +1,6 @@
-import styles from './Arrows.module.css';
+import './Arrows.css';
 
 import React, {Fragment} from 'react';
-import cn from 'classnames';
 import PropTypes from 'prop-types';
 import SvgIcon from './SvgIcon';
 
@@ -17,12 +16,12 @@ function Arrows (props) {
   return (
     <Fragment>
       {hasLeftArrow ? (
-        <button className = {cn(styles.wrapper, styles.left)} onClick = {onClickPrev}>
+        <button className = "arrow-button left" onClick = {onClickPrev}>
           <SvgIcon name = {'feather-chevron-left'}/>
         </button>
       ) : null}
       {hasRightArrow ? (
-        <button className = {cn(styles.wrapper, styles.right)} onClick = {onClickNext}>
+        <button className = "arrow-button right" onClick = {onClickNext}>
           <SvgIcon name = {'feather-chevron-right'}/>
         </button>
       ) : null}

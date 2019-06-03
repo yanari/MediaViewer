@@ -1,18 +1,18 @@
-:local(.wrapper) {
+.close-button {
+  cursor: pointer;
   display: flex;
-  justify-content: flex-end;
-}
-
-:local(.wrapper) > button {
+  position: absolute;
+  right: 0;
+  top: 0;
   outline: none;
   transition: filter 0.5s;
 }
 
-:local(.wrapper) > button:hover svg {
+.close-button:hover svg {
   filter: brightness(0.8);
 }
 
-:local(.wrapper) svg {
+.close-button svg {
   color: white;
   height: 36px !important;
   width: 36px !important;

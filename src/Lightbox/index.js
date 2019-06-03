@@ -1,11 +1,11 @@
-import styles from './index.module.css';
+import './index.css';
 
 import React, {useEffect} from 'react';
 import MountTransition from 'mount-transition';
 import PropTypes from 'prop-types';
 import Arrows from '../components/Arrows';
 import CloseButton from '../components/CloseButton';
-import Figure from '../components/Figure';
+import Image from '../components/Image';
 import Portal from '../components/Portal';
 
 function Lightbox (props) {
@@ -23,14 +23,12 @@ function Lightbox (props) {
   }, [isOpen]);
   return (
     <MountTransition
-      className = {styles.wrapper}
+      className = "wrapper"
       preset = "fade"
       isMounted = {isOpen}
     >
-      <MountTransition isMounted = {isOpen} preset = "zoom">
-        <CloseButton onClick = {onClose}/>
-        <Figure image = {currentImage}/>
-      </MountTransition>
+      <Image image = {currentImage}/>
+      <CloseButton onClick = {onClose}/>
       <Arrows
         currentImage = {currentImage}
         images = {images}
