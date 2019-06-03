@@ -7,11 +7,7 @@ import Arrows from '../components/Arrows';
 import CloseButton from '../components/CloseButton';
 import Figure from '../components/Figure';
 import Portal from '../components/Portal';
-import ModalAnimation from '../components/ModalAnimation';
 
-/**
- * @return {null}
- */
 function Lightbox (props) {
   const {
     currentImage,
@@ -28,13 +24,13 @@ function Lightbox (props) {
   return (
     <MountTransition
       className = {styles.wrapper}
-      preset = "fadeInOut"
-      show = {isOpen}
+      preset = "fade"
+      isMounted = {isOpen}
     >
-      <ModalAnimation isOpen = {isOpen}>
+      <MountTransition isMounted = {isOpen} preset = "zoom">
         <CloseButton onClick = {onClose}/>
         <Figure image = {currentImage}/>
-      </ModalAnimation>
+      </MountTransition>
       <Arrows
         currentImage = {currentImage}
         images = {images}
