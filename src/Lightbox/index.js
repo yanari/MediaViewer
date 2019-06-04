@@ -47,7 +47,7 @@ function Lightbox (props) {
 }
 
 Lightbox.propTypes = {
-  currentImageIndex: PropTypes.instanceOf(Object).isRequired,
+  currentImageIndex: PropTypes.number,
   imagesList: PropTypes.array.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClickNext: PropTypes.func.isRequired,

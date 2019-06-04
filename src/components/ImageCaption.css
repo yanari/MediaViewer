@@ -10,12 +10,14 @@
   width: 100%;
 }
 
+.caption > * {
+  margin: 0 32px;
+}
+
 .caption > figcaption {
-  margin-left: 32px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .caption > .counter {
-  margin-right: 32px;
   white-space: nowrap;
 }
