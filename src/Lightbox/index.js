@@ -11,13 +11,14 @@ import Portal from '../components/Portal';
 
 function Lightbox (props) {
   const {
-    currentImage,
-    images,
+    currentImageIndex,
+    imagesList,
     isOpen,
     onClickNext,
     onClickPrev,
     onClose,
   } = props;
+  const currentImage = imagesList[currentImageIndex];
   useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'auto';
@@ -32,12 +33,12 @@ function Lightbox (props) {
       <ImageCaption
         className = "image-caption"
         image = {currentImage}
-        images = {images}
+        images = {imagesList}
       />
       <CloseButton onClick = {onClose}/>
       <Arrows
         currentImage = {currentImage}
-        images = {images}
+        images = {imagesList}
         onClickNext = {onClickNext}
         onClickPrev = {onClickPrev}
       />
@@ -46,8 +47,8 @@ function Lightbox (props) {
 }
 
 Lightbox.propTypes = {
-  currentImage: PropTypes.instanceOf(Object).isRequired,
-  images: PropTypes.array.isRequired,
+  currentImageIndex: PropTypes.instanceOf(Object).isRequired,
+  imagesList: PropTypes.array.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClickNext: PropTypes.func.isRequired,
   onClickPrev: PropTypes.func.isRequired,

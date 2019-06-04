@@ -6,5 +6,5 @@
 .thumbnail > img {
   height: auto;
   vertical-align: middle;
-  width: 400px;
+  max-width: 100%;
 }
