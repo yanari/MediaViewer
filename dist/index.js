@@ -4,9 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _indexModule = require('./index.module.css');
-
-var _indexModule2 = _interopRequireDefault(_indexModule);
+require('./index.css');
 
 var _react = require('react');
 
@@ -20,9 +18,25 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Arrow = require('../components/Arrow');
+var _Arrows = require('../components/Arrows');
 
-var _Arrow2 = _interopRequireDefault(_Arrow);
+var _Arrows2 = _interopRequireDefault(_Arrows);
+
+var _CloseButton = require('../components/CloseButton');
+
+var _CloseButton2 = _interopRequireDefault(_CloseButton);
+
+var _Image = require('../components/Image');
+
+var _Image2 = _interopRequireDefault(_Image);
+
+var _ImageCaption = require('../components/ImageCaption');
+
+var _ImageCaption2 = _interopRequireDefault(_ImageCaption);
+
+var _Portal = require('../components/Portal');
+
+var _Portal2 = _interopRequireDefault(_Portal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34,53 +48,29 @@ function Lightbox(props) {
       onClickPrev = props.onClickPrev,
       onClose = props.onClose;
 
-  var refLeftArrow = (0, _react.useRef)();
-  var refRightArrow = (0, _react.useRef)();
-  var hasLeftArrow = images[0] !== currentImage;
-  var hasRightArrow = images[images.length - 1] !== currentImage;
-
-  var handleClose = (0, _react.useCallback)(function (e) {
-    if (e.target.contains(refLeftArrow.current) || e.target.contains(refRightArrow.current)) {
-      onClose();
-    }
-  }, [onClose]);
-
   (0, _react.useEffect)(function () {
-    document.addEventListener('click', handleClose);
-    return function () {
-      document.removeEventListener('click', handleClose);
-    };
-  }, [isOpen, handleClose]);
-
+    if (isOpen) document.body.style.overflow = 'hidden';else document.body.style.overflow = 'auto';
+  }, [isOpen]);
   return _react2.default.createElement(
     _mountTransition2.default,
     {
-      className: _indexModule2.default.wrapper,
-      preset: 'fadeInOut',
-      show: isOpen
+      className: 'wrapper',
+      preset: 'fade',
+      isMounted: isOpen
     },
-    _react2.default.createElement(
-      'div',
-      { className: _indexModule2.default.content },
-      _react2.default.createElement(
-        'figure',
-        { className: _indexModule2.default.figure },
-        _react2.default.createElement('img', {
-          alt: currentImage.caption,
-          src: currentImage.src
-        })
-      )
-    ),
-    hasLeftArrow ? _react2.default.createElement(_Arrow2.default, {
-      direction: 'left',
-      onClick: onClickPrev,
-      refArrow: refLeftArrow
-    }) : null,
-    hasRightArrow ? _react2.default.createElement(_Arrow2.default, {
-      direction: 'right',
-      onClick: onClickNext,
-      refArrow: refRightArrow
-    }) : null
+    _react2.default.createElement(_Image2.default, { image: currentImage }),
+    _react2.default.createElement(_ImageCaption2.default, {
+      className: 'image-caption',
+      image: currentImage,
+      images: images
+    }),
+    _react2.default.createElement(_CloseButton2.default, { onClick: onClose }),
+    _react2.default.createElement(_Arrows2.default, {
+      currentImage: currentImage,
+      images: images,
+      onClickNext: onClickNext,
+      onClickPrev: onClickPrev
+    })
   );
 }
 
@@ -93,4 +83,4 @@ Lightbox.propTypes = {
   onClose: _propTypes2.default.func.isRequired
 };
 
-exports.default = Lightbox;
+exports.default = (0, _Portal2.default)('portal')(Lightbox);
