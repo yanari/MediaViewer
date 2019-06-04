@@ -5,20 +5,20 @@ import MountTransition from 'mount-transition';
 import PropTypes from 'prop-types';
 import Arrows from '../components/Arrows';
 import CloseButton from '../components/CloseButton';
-import Figure from '../components/Figure';
-import ImageCaption from '../components/ImageCaption';
+import Media from '../components/Media';
+import MediaCaption from '../components/MediaCaption';
 import Portal from '../components/Portal';
 
 function Lightbox (props) {
   const {
-    currentImageIndex,
-    imagesList,
+    currentMediaIndex,
+    mediaList,
     isOpen,
     onClickNext,
     onClickPrev,
     onClose,
   } = props;
-  const currentImage = imagesList[currentImageIndex];
+  const currentMedia = mediaList[currentMediaIndex];
   useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'auto';
@@ -29,16 +29,16 @@ function Lightbox (props) {
       preset = "fade"
       isMounted = {isOpen}
     >
-      <Figure image = {currentImage}/>
-      <ImageCaption
-        className = "image-caption"
-        image = {currentImage}
-        images = {imagesList}
+      <Media currentMedia = {currentMedia}/>
+      <MediaCaption
+        className = "media-caption"
+        currentMedia = {currentMedia}
+        mediaList = {mediaList}
       />
       <CloseButton onClick = {onClose}/>
       <Arrows
-        currentImage = {currentImage}
-        images = {imagesList}
+        currentMedia = {currentMedia}
+        mediaList = {mediaList}
         onClickNext = {onClickNext}
         onClickPrev = {onClickPrev}
       />

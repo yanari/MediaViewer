@@ -11,13 +11,13 @@
   width: 100%;
 }
 
-.wrapper .image-caption {
+.wrapper .media-caption {
   opacity: 0;
-  transition: .3s opacity;
+  transition: .4s opacity;
   transition-delay: 3s;
 }
 
-.wrapper:hover .image-caption {
+.wrapper:hover .media-caption {
   opacity: 1;
   transition-delay: .1s;
 }

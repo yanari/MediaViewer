@@ -6,13 +6,13 @@ import SvgIcon from './SvgIcon';
 
 function Arrows (props) {
   const {
-    currentImage,
-    images,
+    currentMedia,
+    mediaList,
     onClickNext,
     onClickPrev,
   } = props;
-  const hasLeftArrow = images[0] !== currentImage;
-  const hasRightArrow = images[images.length - 1] !== currentImage;
+  const hasLeftArrow = mediaList[0] !== currentMedia;
+  const hasRightArrow = mediaList[mediaList.length - 1] !== currentMedia;
   return (
     <Fragment>
       {hasLeftArrow ? (
@@ -30,8 +30,10 @@ function Arrows (props) {
 }
 
 Arrows.propTypes = {
-  direction: PropTypes.oneOf(['left', 'right']),
-  onClick: PropTypes.func,
+  currentMedia: PropTypes.instanceOf(Object),
+  mediaList: PropTypes.arrayOf(Object),
+  onClickNext: PropTypes.func,
+  onClickPrev: PropTypes.func,
 };
 
 export default Arrows;
