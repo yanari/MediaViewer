@@ -5,7 +5,7 @@ import MountTransition from 'mount-transition';
 import PropTypes from 'prop-types';
 import Arrows from '../components/Arrows';
 import CloseButton from '../components/CloseButton';
-import Image from '../components/Image';
+import Figure from '../components/Figure';
 import ImageCaption from '../components/ImageCaption';
 import Portal from '../components/Portal';
 
@@ -29,7 +29,7 @@ function Lightbox (props) {
       preset = "fade"
       isMounted = {isOpen}
     >
-      <Image image = {currentImage}/>
+      <Figure image = {currentImage}/>
       <ImageCaption
         className = "image-caption"
         image = {currentImage}

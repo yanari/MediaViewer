@@ -1,8 +1,8 @@
-import './Image.css';
+import './Figure.css';
 
 import React from 'react';
 
-function Image ({image}) {
+function Figure ({image}) {
   return (
     <figure className = "figure">
       <img
@@ -14,4 +14,4 @@ function Image ({image}) {
   );
 }
 
-export default Image;
+export default Figure;
