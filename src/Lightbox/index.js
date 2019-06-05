@@ -28,7 +28,10 @@ function Lightbox (props) {
       preset = "fade"
       isMounted = {isOpen}
     >
-      <Media currentMedia = {currentMedia}/>
+      <Media
+        currentMedia = {currentMedia}
+        mediaList = {mediaList}
+      />
       <CloseButton onClick = {onClose}/>
       <Arrows
         currentMedia = {currentMedia}

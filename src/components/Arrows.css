@@ -2,7 +2,6 @@
   cursor: pointer;
   outline: none;
   position: absolute;
-  top: 50%;
   transition: filter 0.5s;
 }
 

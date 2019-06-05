@@ -2,11 +2,12 @@ import './Media.css';
 
 import React from 'react';
 import {getVimeoOrYoutubeSrc} from 'dev-analise';
+import Footer from './Footer';
 
-function Media ({currentMedia}) {
+function Media ({currentMedia, mediaList}) {
   const vimeoOrYoutubeSrc = getVimeoOrYoutubeSrc(currentMedia.src);
   return (
-    <figure className = {vimeoOrYoutubeSrc ? 'video-container' : null}>
+    <figure className = {vimeoOrYoutubeSrc ? 'video__container' : 'image__container'}>
       {vimeoOrYoutubeSrc ? (
         <div className = 'aspect__ratio__container'>
           <iframe
@@ -20,11 +21,14 @@ function Media ({currentMedia}) {
       ) : (
         <img
           alt = {currentMedia.caption}
-          className = "img"
+          className = "image"
           src = {currentMedia.src}
         />
       )}
-      {currentMedia.caption ? <figcaption>{currentMedia.caption}</figcaption> : null}
+      <Footer
+        currentMedia = {currentMedia}
+        mediaList = {mediaList}
+      />
     </figure>
   );
 }

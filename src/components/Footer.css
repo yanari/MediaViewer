@@ -1,0 +1,14 @@
+.footer {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.footer__caption {
+}
+
+.footer__counter {
+  margin-left: 16px;
+  white-space: nowrap;
+}
