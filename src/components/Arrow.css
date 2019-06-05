@@ -1,0 +1,15 @@
+.arrow__button {
+  cursor: pointer;
+  outline: none;
+  transition: filter 0.5s;
+}
+
+.arrow__button svg {
+  color: white;
+  height: 40px !important;
+  width: 40px !important;
+}
+
+.arrow__button:hover svg {
+  filter: brightness(0.8);
+}

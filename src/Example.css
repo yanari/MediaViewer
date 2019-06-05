@@ -1,6 +1,6 @@
 .thumbnail {
   margin-bottom: 8px;
-  width: 100%;
+  max-width: 144px;
 }
 
 .thumbnail > img {

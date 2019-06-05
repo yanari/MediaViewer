@@ -1,9 +1,8 @@
 import './index.css';
 
 import React, {useEffect} from 'react';
-import MountTransition from 'mount-transition';
 import PropTypes from 'prop-types';
-import Arrows from '../components/Arrows';
+import Arrow from '../components/Arrow';
 import CloseButton from '../components/CloseButton';
 import Media from '../components/Media';
 import Portal from '../components/Portal';
@@ -18,28 +17,28 @@ function Lightbox (props) {
     onClose,
   } = props;
   const currentMedia = mediaList[currentMediaIndex];
+  const hasLeftArrow = mediaList[0] !== currentMedia;
+  const hasRightArrow = mediaList[mediaList.length - 1] !== currentMedia;
   useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'auto';
   }, [isOpen]);
   return (
-    <MountTransition
-      className = "wrapper"
-      preset = "fade"
-      isMounted = {isOpen}
-    >
-      <Media
-        currentMedia = {currentMedia}
-        mediaList = {mediaList}
-      />
+    <div className = "modal">
+      <div className = "arrow__button__container">
+        {hasLeftArrow ? <Arrow direction = "left" onClick = {onClickPrev}/> : null}
+      </div>
+      <div className = "media__container">
+        <Media
+          currentMedia = {currentMedia}
+          mediaList = {mediaList}
+        />
+      </div>
+      <div className = "arrow__button__container">
+        {hasRightArrow ? <Arrow direction = "right" onClick = {onClickNext}/> : null}
+      </div>
       <CloseButton onClick = {onClose}/>
-      <Arrows
-        currentMedia = {currentMedia}
-        mediaList = {mediaList}
-        onClickNext = {onClickNext}
-        onClickPrev = {onClickPrev}
-      />
-    </MountTransition>
+    </div>
   );
 }
 

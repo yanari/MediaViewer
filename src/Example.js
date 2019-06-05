@@ -7,11 +7,12 @@ function Example () {
   const [show, setShow] = useState(false);
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
   const mediaList = [
-    {caption: 'sa;daslkdha;klsdh salkdhalsd sahdfdsf ds  sa das das das das das das das das das das ds fas', src: 'https://images.unsplash.com/photo-1556909172-8c2f041fca1e'},
+    {caption: 'sa;daslkdha;klsdh salkdhalsd sahdfdsf ds  sa das das das das das das das das das das ds fas', src: 'https://images.unsplash.com/photo-1559656428-6f31733e0937'},
     {caption: 'aslkjd lskja lksjd jal', src: 'https://images.unsplash.com/photo-1558208846-f197910b7707'},
     {caption: 'Linda imagem parabéns!!!!', src: 'https://images.unsplash.com/photo-1558197385-575ecbf37bef'},
     {caption: 'Outra maravilhosa imagem', src: 'https://images.unsplash.com/photo-1558239184-be7815bc8965'},
     {caption: 'videooooo', src: '//www.youtube.com/watch?v=BvDisMpMzxU'},
+    {src: 'https://images.unsplash.com/photo-1559638790-bfaef0fbbe2e'},
   ];
   return (
     <Fragment>
