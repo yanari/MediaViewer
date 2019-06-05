@@ -11,6 +11,7 @@ function Example () {
     {caption: 'aslkjd lskja lksjd jal', src: 'https://images.unsplash.com/photo-1558208846-f197910b7707'},
     {caption: 'Linda imagem parabéns!!!!', src: 'https://images.unsplash.com/photo-1558197385-575ecbf37bef'},
     {caption: 'Outra maravilhosa imagem', src: 'https://images.unsplash.com/photo-1558239184-be7815bc8965'},
+    {caption: 'videooooo', src: '//www.youtube.com/watch?v=BvDisMpMzxU'},
   ];
   return (
     <Fragment>

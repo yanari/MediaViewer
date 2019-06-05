@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import Arrows from '../components/Arrows';
 import CloseButton from '../components/CloseButton';
 import Media from '../components/Media';
-import MediaCaption from '../components/MediaCaption';
 import Portal from '../components/Portal';
 
 function Lightbox (props) {
@@ -30,11 +29,6 @@ function Lightbox (props) {
       isMounted = {isOpen}
     >
       <Media currentMedia = {currentMedia}/>
-      <MediaCaption
-        className = "media-caption"
-        currentMedia = {currentMedia}
-        mediaList = {mediaList}
-      />
       <CloseButton onClick = {onClose}/>
       <Arrows
         currentMedia = {currentMedia}
@@ -47,8 +41,8 @@ function Lightbox (props) {
 }
 
 Lightbox.propTypes = {
-  currentImageIndex: PropTypes.number,
-  imagesList: PropTypes.array.isRequired,
+  currentMediaIndex: PropTypes.number,
+  mediaList: PropTypes.array.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClickNext: PropTypes.func.isRequired,
   onClickPrev: PropTypes.func.isRequired,
