@@ -11,8 +11,8 @@ import Portal from '../components/Portal';
 function Lightbox (props) {
   const {
     currentMediaIndex,
-    mediaList,
     isOpen,
+    mediaList,
     onClickNext,
     onClickPrev,
     onClose,
@@ -45,11 +45,16 @@ function Lightbox (props) {
 
 Lightbox.propTypes = {
   currentMediaIndex: PropTypes.number,
-  mediaList: PropTypes.array.isRequired,
+  hasThumbnails: PropTypes.bool,
   isOpen: PropTypes.bool.isRequired,
+  mediaList: PropTypes.array.isRequired,
   onClickNext: PropTypes.func.isRequired,
   onClickPrev: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
+};
+
+Lightbox.defaultProps = {
+  currentMediaIndex: 0,
 };
 
 export default Portal('portal')(Lightbox);

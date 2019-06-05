@@ -32,11 +32,11 @@ function Example () {
       })}
       <Lightbox
         currentMediaIndex = {currentMediaIndex}
+        isOpen = {show}
         mediaList = {mediaList}
         onClickNext = {() => setCurrentMediaIndex(currentMediaIndex + 1)}
         onClickPrev = {() => setCurrentMediaIndex(currentMediaIndex - 1)}
         onClose = {() => setShow(false)}
-        isOpen = {show}
       />
     </Fragment>
   );
