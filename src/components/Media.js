@@ -1,13 +1,12 @@
 import './Media.css';
 
 import React from 'react';
-import cn from 'classnames';
 import {getVimeoOrYoutubeSrc} from 'dev-analise';
 
 function Media ({currentMedia}) {
   const vimeoOrYoutubeSrc = getVimeoOrYoutubeSrc(currentMedia.src);
   return (
-    <figure className = {cn({'video-container': vimeoOrYoutubeSrc})}>
+    <figure className = {vimeoOrYoutubeSrc ? 'video-container' : null}>
       {vimeoOrYoutubeSrc ? (
         <div className = 'aspect__ratio__container'>
           <iframe

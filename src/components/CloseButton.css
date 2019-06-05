@@ -1,9 +1,8 @@
 .close-button {
   cursor: pointer;
-  display: flex;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 8px;
+  top: 8px;
   outline: none;
   transition: filter 0.5s;
 }
