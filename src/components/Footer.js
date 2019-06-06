@@ -3,13 +3,14 @@ import './Footer.css';
 import React from 'react';
 
 function Footer ({currentMedia, mediaList}) {
+  const currentMediaCount = mediaList.indexOf(currentMedia) + 1;
   return (
     <div className = "footer">
       <figcaption className = "footer__caption">
         {currentMedia.caption}
       </figcaption>
       <div className = "footer__counter">
-        {mediaList.indexOf(currentMedia) + 1} de {mediaList.length}
+        {currentMediaCount} de {mediaList.length}
       </div>
     </div>
   );

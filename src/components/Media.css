@@ -1,27 +1,23 @@
-/*figure > .aspect__ratio__container {*/
-/*  height: 0;*/
-/*  padding-bottom: 56.25%; !* 16:9 Aspect Ratio; 75%=4:3; 66.66%=3:2; 62.5%=8:5; 100%=1:1  *!*/
-/*  position: relative;*/
-/*  width: 100%;*/
-/*}*/
-
-/*figure > .aspect__ratio__container .aspect__ratio__element {*/
-/*  height: 100%;*/
-/*  left: 0;*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  width: 100%;*/
-/*}*/
-
-.image__container {
-  align-items: center;
-  display: block;
-  margin: auto;
-  width: calc(100vw - 96px)
+.media__container > .image__container {
+  display: inline-block;
 }
 
-figure > img {
-
-  max-height: 90vh;
+.media__container > .image__container > img {
+  height: 90vh;
   max-width: 100%;
+}
+
+.video__container > .aspect__ratio__container {
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio; 75%=4:3; 66.66%=3:2; 62.5%=8:5; 100%=1:1  */
+  position: relative;
+  width: 100%;
+}
+
+.video__container > .aspect__ratio__container .aspect__ratio__element {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
