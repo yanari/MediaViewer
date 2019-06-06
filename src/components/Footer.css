@@ -2,6 +2,7 @@
   color: white;
   display: flex;
   justify-content: space-between;
+  text-align: start; /* no figure ta center então reseto aqui */
 }
 
 .footer > .footer__counter {

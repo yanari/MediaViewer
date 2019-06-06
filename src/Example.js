@@ -13,6 +13,11 @@ function Example () {
     {caption: 'Outra maravilhosa imagem', src: 'https://images.unsplash.com/photo-1558239184-be7815bc8965'},
     {caption: 'videooooo', src: '//www.youtube.com/watch?v=BvDisMpMzxU'},
     {src: 'https://images.unsplash.com/photo-1559638790-bfaef0fbbe2e'},
+    {src: 'https://images.unsplash.com/photo-1559826182-8f80ffd900ff'},
+    {src: 'https://images.unsplash.com/photo-1559831695-c0d78f7c50af'},
+    {src: 'https://images.unsplash.com/photo-1559793706-41a63b644d26'},
+    {src: 'https://images.unsplash.com/photo-1559813023-ad0b2d30b1c6'},
+    {src: 'https://images.unsplash.com/photo-1555423020-bb90a0ed52ed'},
   ];
   return (
     <Fragment>

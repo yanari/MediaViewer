@@ -23,7 +23,7 @@ function Lightbox (props) {
     if (isOpen) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'auto';
   }, [isOpen]);
-  return (
+  return isOpen ? (
     <div className = "modal">
       <div className = "arrow__button__container">
         {hasLeftArrow ? <Arrow direction = "left" onClick = {onClickPrev}/> : null}
@@ -39,7 +39,7 @@ function Lightbox (props) {
       </div>
       <CloseButton onClick = {onClose}/>
     </div>
-  );
+  ) : null;
 }
 
 Lightbox.propTypes = {
