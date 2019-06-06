@@ -1,6 +1,6 @@
 .image__container {
-  display: inline-block;
-  text-align: center; /* em modo landscape a img fica alinhada pra esquerda, com isso nao */
+  display: flex;
+  flex-direction: column;
 }
 
 .image__container > img {
@@ -9,7 +9,7 @@
 }
 
 .video__container {
-  width: 70vw;
+  width: 100%;
 }
 
 .video__container > .aspect__ratio__container {

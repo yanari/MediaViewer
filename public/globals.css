@@ -1,0 +1,11 @@
+:root {
+  /* Font sizes */
+  --font-size-big-0: 40px;
+  --font-size-big-1: 28px; /* 1.75rem */
+  --font-size-big-2: 23px; /* 1.4375rem */
+  --font-size-big-3: 20px; /* 1.25rem */
+  --font-size-body: 16px; /* 1rem */
+  --font-size-small-1: 14px; /* 0.875rem */
+  --font-size-small-2: 12px; /* 0.75rem */
+  --font-size-small-3: 10px; /* 0.625rem */
+}
