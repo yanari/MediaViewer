@@ -8,4 +8,7 @@
   --font-size-small-1: 14px; /* 0.875rem */
   --font-size-small-2: 12px; /* 0.75rem */
   --font-size-small-3: 10px; /* 0.625rem */
+
+  --z-index-modal: 1000;
+  --z-index-arrow-buttons: 1001;
 }

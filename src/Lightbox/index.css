@@ -8,10 +8,12 @@
   position: fixed;
   top: 0;
   width: 100vw;
+  z-index: var(--z-index-modal);
 }
 
 .arrow__button__container {
   position: absolute;
+  z-index: var(--z-index-arrow-buttons);
 }
 
 .arrow__button__container.right {
