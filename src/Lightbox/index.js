@@ -3,7 +3,7 @@ import './index.css';
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import MountTransition from 'mount-transition';
-import Arrow from '../components/Arrow';
+import ArrowButtons from '../components/ArrowButtons';
 import CloseButton from '../components/CloseButton';
 import Media from '../components/Media';
 import Portal from '../components/Portal';
@@ -31,7 +31,7 @@ function Lightbox (props) {
       preset = "fade"
     >
       <div className = "arrow__button__container left">
-        {hasLeftArrow ? <Arrow direction = "left" onClick = {onClickPrev}/> : null}
+        {hasLeftArrow ? <ArrowButtons direction = "left" onClick = {onClickPrev}/> : null}
       </div>
       <div className = "media__container">
         <Media
@@ -40,7 +40,7 @@ function Lightbox (props) {
         />
       </div>
       <div className = "arrow__button__container right">
-        {hasRightArrow ? <Arrow direction = "right" onClick = {onClickNext}/> : null}
+        {hasRightArrow ? <ArrowButtons direction = "right" onClick = {onClickNext}/> : null}
       </div>
       <CloseButton onClick = {onClose}/>
     </MountTransition>

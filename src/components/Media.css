@@ -1,12 +1,12 @@
 .image__container {
   display: flex;
   flex-direction: column;
+  margin: 0 56px;
   width: 100%;
 }
 
 .image__container > img {
   align-self: center;
-  margin: 0 56px;
   max-height: 90vh;
   max-width: 100%;
 }
@@ -32,6 +32,10 @@
 
 @media (max-width: 414px) {
   .image__container {
-    padding: 0;
+    margin: 0;
+  }
+
+  .video__container {
+    width: 100%;
   }
 }

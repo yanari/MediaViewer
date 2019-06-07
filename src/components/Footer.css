@@ -5,10 +5,11 @@
   display: flex;
   justify-content: space-between;
   left: 0;
-  padding-top: 32px; /* pro gradiente ficar mais smooth */
+  padding: 32px 16px 16px 16px; /* pro gradiente ficar mais smooth */
   position: absolute;
   right: 0;
 }
+
 .footer__caption {
   display: block;
 }
