@@ -2,6 +2,7 @@ import './index.css';
 
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
+import MountTransition from 'mount-transition';
 import Arrow from '../components/Arrow';
 import CloseButton from '../components/CloseButton';
 import Media from '../components/Media';
@@ -24,7 +25,11 @@ function Lightbox (props) {
     else document.body.style.overflow = 'auto';
   }, [isOpen]);
   return (
-    <div className = "modal">
+    <MountTransition
+      className = "modal"
+      isMounted = {isOpen}
+      preset = "fade"
+    >
       <div className = "arrow__button__container left">
         {hasLeftArrow ? <Arrow direction = "left" onClick = {onClickPrev}/> : null}
       </div>
@@ -38,7 +43,7 @@ function Lightbox (props) {
         {hasRightArrow ? <Arrow direction = "right" onClick = {onClickNext}/> : null}
       </div>
       <CloseButton onClick = {onClose}/>
-    </div>
+    </MountTransition>
   );
 }
 

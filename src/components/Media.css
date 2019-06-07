@@ -4,6 +4,7 @@
 }
 
 .image__container > img {
+  align-self: center; /* com legenda mt grande a imagem se distorce */
   max-height: 90vh;
   max-width: 100%;
 }
