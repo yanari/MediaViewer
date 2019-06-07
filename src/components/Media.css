@@ -1,16 +1,18 @@
 .image__container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .image__container > img {
-  align-self: center; /* com legenda mt grande a imagem se distorce */
+  align-self: center;
+  margin: 0 56px;
   max-height: 90vh;
   max-width: 100%;
 }
 
 .video__container {
-  width: 100%;
+  width: 80%;
 }
 
 .video__container > .aspect__ratio__container {
@@ -26,4 +28,10 @@
   position: absolute;
   top: 0;
   width: 100%;
+}
+
+@media (max-width: 414px) {
+  .image__container {
+    padding: 0;
+  }
 }

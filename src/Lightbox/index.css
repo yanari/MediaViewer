@@ -27,18 +27,5 @@
 .media__container {
   justify-content: center;
   display: flex;
-  padding: 0 56px;
   width: 100vw;
-}
-
-@media (max-width: 414px) {
-  .media__container {
-    padding: 0;
-  }
-}
-
-@media only screen and (max-device-width : 640px) and (orientation : landscape) {
-  .media__container {
-    padding-bottom: 32px;
-  }
 }
