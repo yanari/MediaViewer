@@ -7,13 +7,12 @@ import Footer from './Footer';
 function Media ({currentMedia, mediaList}) {
   const vimeoOrYoutubeSrc = getVimeoOrYoutubeSrc(currentMedia.src);
   return (
-    <figure className = {vimeoOrYoutubeSrc ? 'video__container' : 'image__container'}>
+    <figure className = "container">
       {vimeoOrYoutubeSrc ? (
         <div className = 'aspect__ratio__container'>
           <iframe
             allowFullScreen = {true}
             className = "aspect__ratio__element"
-            frameBorder = {0}
             src = {vimeoOrYoutubeSrc}
             title = {currentMedia.src}
           />
