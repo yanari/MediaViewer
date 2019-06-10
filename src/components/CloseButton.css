@@ -1,18 +1,10 @@
-.close-button {
-  cursor: pointer;
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  outline: none;
-}
-
-.close-button svg {
+.close svg {
   color: white;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.8));
   height: 36px !important;
   width: 36px !important;
 }
 
-.close-button:hover svg {
+.close:hover svg {
   color: gray;
 }

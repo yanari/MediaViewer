@@ -26,6 +26,20 @@
   width: 100%;
 }
 
+.footer__caption {
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  color: white;
+  display: flex;
+  font-size: var(--font-size-small-1);
+  justify-content: space-between;
+  left: 0;
+  max-height: 100vh;
+  padding: 8px 16px;
+  position: absolute;
+  right: 0;
+}
+
 @media (max-width: 414px) {
   .container {
     margin: 0;

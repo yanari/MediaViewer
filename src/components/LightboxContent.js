@@ -6,11 +6,16 @@ import CloseButton from '../components/CloseButton';
 import Media from '../components/Media';
 import PropTypes from "prop-types";
 
-function LightboxContent ({currentIndex, mediaList, onClose}) {
+function LightboxContent (props) {
+  const {
+    currentIndex,
+    mediaList,
+    onClose,
+  } = props;
   const [index, setIndex] = useState(currentIndex);
-  const currentMedia = mediaList[index];
-  const hasLeftArrow = mediaList[0] !== currentMedia;
-  const hasRightArrow = mediaList[mediaList.length - 1] !== currentMedia;
+  const hasLeftArrow = mediaList[0] !== mediaList[index];
+  const hasRightArrow = mediaList[mediaList.length - 1] !== mediaList[index];
+  const currentMediaCount = mediaList.indexOf(mediaList[index]) + 1;
   const handleClickPrev = () => setIndex(index - 1);
   const handleClickNext = () => setIndex(index + 1);
   return (
@@ -19,15 +24,17 @@ function LightboxContent ({currentIndex, mediaList, onClose}) {
         {hasLeftArrow ? <ArrowButtons direction = "left" onClick = {handleClickPrev}/> : null}
       </div>
       <div className = "media__container">
-        <Media
-          currentMedia = {currentMedia}
-          mediaList = {mediaList}
-        />
+        <Media currentMedia = {mediaList[index]} mediaList = {mediaList}/>
       </div>
       <div className = "arrow__button__container right">
         {hasRightArrow ? <ArrowButtons direction = "right" onClick = {handleClickNext}/> : null}
       </div>
-      <CloseButton onClick = {onClose}/>
+      <div className = "close__button">
+        <CloseButton onClick = {onClose}/>
+      </div>
+      <div className = "media__counter">
+        {currentMediaCount}/{mediaList.length}
+      </div>
     </Fragment>
   );
 }

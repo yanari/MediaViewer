@@ -1,10 +1,10 @@
 import './Media.css';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import {getVimeoOrYoutubeSrc} from 'dev-analise';
-import Footer from './Footer';
 
-function Media ({currentMedia, mediaList}) {
+function Media ({currentMedia}) {
   const vimeoOrYoutubeSrc = getVimeoOrYoutubeSrc(currentMedia.src);
   return (
     <figure className = "container">
@@ -24,12 +24,17 @@ function Media ({currentMedia, mediaList}) {
           src = {currentMedia.src}
         />
       )}
-      <Footer
-        currentMedia = {currentMedia}
-        mediaList = {mediaList}
-      />
+      {currentMedia.caption ? (
+        <figcaption className = "footer__caption">
+          {currentMedia.caption}
+        </figcaption>
+      ) : null}
     </figure>
   );
 }
+
+Media.propTypes = {
+  currentMedia: PropTypes.instanceOf(Object),
+};
 
 export default Media;
