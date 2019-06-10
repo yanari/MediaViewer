@@ -1,3 +1,5 @@
+import './LightboxContent.css';
+
 import React, {Fragment, useState} from 'react';
 import ArrowButtons from '../components/ArrowButtons';
 import CloseButton from '../components/CloseButton';

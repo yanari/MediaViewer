@@ -10,22 +10,3 @@
   width: 100vw;
   z-index: var(--z-index-modal);
 }
-
-.arrow__button__container {
-  position: absolute;
-  z-index: var(--z-index-arrow-buttons);
-}
-
-.arrow__button__container.right {
-  right: 8px;
-}
-
-.arrow__button__container.left {
-  left: 8px;
-}
-
-.media__container {
-  justify-content: center;
-  display: flex;
-  width: 100vw;
-}
