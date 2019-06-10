@@ -5,10 +5,11 @@
 
 .arrow__button svg {
   color: white;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.8));
   height: 40px !important;
   width: 40px !important;
 }
 
 .arrow__button:hover svg {
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.8));
+  color: gray;
 }
