@@ -13,13 +13,15 @@ class Lightbox extends Component {
   constructor (props) {
     super(props);
     this.state = {
+      index: 0,
       isOpen: this.props.isOpen,
     };
+    this.history = createBrowserHistory();
   }
 
   componentDidMount () {
-    const history = createBrowserHistory();
-    const queryStringParams = queryStringParse(history.location.search);
+    const queryStringParams = queryStringParse(this.history.location.search);
+    console.log(queryStringParams);
     if (queryStringParams['gallery'] === '1') {
       this.setState({isOpen: true});
     }
@@ -27,15 +29,16 @@ class Lightbox extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.isOpen !== prevProps.isOpen) {
+      this.setState({isOpen: this.props.isOpen});
+      this.history.push({search: this.props.isOpen ? '?gallery=1&mediaId=' + this.props.currentMediaIndex : null});
       if (this.props.isOpen) document.body.style.overflow = 'hidden';
       else document.body.style.overflow = 'auto';
-      this.setState({isOpen: this.props.isOpen});
     }
   }
 
   handleClose = () => {
     this.props.onClose();
-    this.setState({isOpen: false});
+    this.setState({isOpen: this.props.isOpen});
   };
 
   render () {
@@ -49,7 +52,10 @@ class Lightbox extends Component {
         <div className = "container">
           {mediaList.map((data) => {
             return (
-              <Media currentMedia = {data} key = {data.src}/>
+              <Media
+                currentMedia = {data}
+                key = {data.src}
+              />
             );
           })}
         </div>
@@ -62,6 +68,7 @@ class Lightbox extends Component {
 }
 
 Lightbox.propTypes = {
+  currentMediaIndex: PropTypes.number,
   isOpen: PropTypes.bool.isRequired,
   mediaList: PropTypes.array.isRequired,
   onClose: PropTypes.func.isRequired,

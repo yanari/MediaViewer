@@ -16,9 +16,7 @@
 }
 
 .close__button {
-  cursor: pointer;
   position: fixed;
   right: 8px;
   top: 8px;
-  outline: none;
 }
