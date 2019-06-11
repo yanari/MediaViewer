@@ -7,7 +7,7 @@ import {getVimeoOrYoutubeSrc} from 'dev-analise';
 function Media ({currentMedia}) {
   const vimeoOrYoutubeSrc = getVimeoOrYoutubeSrc(currentMedia.src);
   return (
-    <figure className = "container">
+    <figure className = "figure">
       {vimeoOrYoutubeSrc ? (
         <div className = 'aspect__ratio__container'>
           <iframe
@@ -25,7 +25,7 @@ function Media ({currentMedia}) {
         />
       )}
       {currentMedia.caption ? (
-        <figcaption className = "footer__caption">
+        <figcaption className = "caption">
           {currentMedia.caption}
         </figcaption>
       ) : null}

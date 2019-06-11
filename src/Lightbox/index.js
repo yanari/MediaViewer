@@ -3,12 +3,12 @@ import './index.css';
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import MountTransition from 'mount-transition';
-import LightboxContent from '../components/LightboxContent';
 import Portal from '../components/Portal';
+import CloseButton from "../components/CloseButton";
+import Media from "../components/Media";
 
 function Lightbox (props) {
   const {
-    currentMediaIndex,
     isOpen,
     mediaList,
     onClose,
@@ -23,11 +23,16 @@ function Lightbox (props) {
       isMounted = {isOpen}
       preset = "fade"
     >
-      <LightboxContent
-        currentIndex = {currentMediaIndex}
-        mediaList = {mediaList}
-        onClose = {onClose}
-      />
+      <div className = "container">
+        {mediaList.map((data) => {
+          return (
+            <Media currentMedia = {data}/>
+          );
+        })}
+      </div>
+      <div className = "close__button">
+        <CloseButton onClick = {onClose}/>
+      </div>
     </MountTransition>
   );
 }
