@@ -13,7 +13,6 @@ class Lightbox extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      index: 0,
       isOpen: this.props.isOpen,
     };
     this.history = createBrowserHistory();
@@ -29,9 +28,12 @@ class Lightbox extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.isOpen !== prevProps.isOpen) {
-      this.setState({isOpen: this.props.isOpen});
-      this.history.push({search: this.props.isOpen ? '?gallery=1&mediaId=' + this.props.currentMediaIndex : null});
-      if (this.props.isOpen) document.body.style.overflow = 'hidden';
+      const {currentMediaIndex, isOpen} = this.props;
+      this.setState({isOpen});
+      this.history.push({
+        search: isOpen ? '?gallery=1&mediaId=' + currentMediaIndex : null
+      });
+      if (isOpen) document.body.style.overflow = 'hidden';
       else document.body.style.overflow = 'auto';
     }
   }
