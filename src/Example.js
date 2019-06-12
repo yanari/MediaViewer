@@ -27,13 +27,14 @@ function Example () {
           setShow(!show);
         };
         return (
-          <button
+          <a
             className = "thumbnail"
+            href = {'#' + index}
             key = {data.src}
             onClick = {() => handleOpenMedia()}
           >
             <img alt = {data.caption} src = {data.src}/>
-          </button>
+          </a>
         );
       })}
       <Lightbox

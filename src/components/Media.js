@@ -4,10 +4,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {getVimeoOrYoutubeSrc} from 'dev-analise';
 
-function Media ({currentMedia}) {
+function Media ({currentMedia, currentMediaIndex}) {
   const vimeoOrYoutubeSrc = getVimeoOrYoutubeSrc(currentMedia.src);
   return (
-    <figure className = "figure">
+    <figure className = "figure" id = {currentMediaIndex}>
       {vimeoOrYoutubeSrc ? (
         <div className = 'aspect__ratio__container'>
           <iframe

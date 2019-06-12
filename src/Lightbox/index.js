@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import CloseButton from '../components/CloseButton';
 import Media from '../components/Media';
 import Portal from '../components/Portal';
-import {queryStringParse} from '../utils/helper';
+import {isInViewPort, queryStringParse} from '../utils/helper';
 
 class Lightbox extends Component {
   constructor (props) {
@@ -16,22 +16,22 @@ class Lightbox extends Component {
       isOpen: this.props.isOpen,
     };
     this.history = createBrowserHistory();
+    this.refDiv = React.createRef();
+    this.queryStringParams = queryStringParse(this.history.location.search);
   }
 
   componentDidMount () {
-    const queryStringParams = queryStringParse(this.history.location.search);
-    console.log(queryStringParams);
-    if (queryStringParams['gallery'] === '1') {
+    if (this.queryStringParams['gallery'] === '1') {
       this.setState({isOpen: true});
     }
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.isOpen !== prevProps.isOpen) {
-      const {currentMediaIndex, isOpen} = this.props;
+    const {isOpen} = this.props;
+    if (isOpen !== prevProps.isOpen) {
       this.setState({isOpen});
       this.history.push({
-        search: isOpen ? '?gallery=1&mediaId=' + currentMediaIndex : null
+        search: isOpen ? '?gallery=1' : null
       });
       if (isOpen) document.body.style.overflow = 'hidden';
       else document.body.style.overflow = 'auto';
@@ -52,10 +52,11 @@ class Lightbox extends Component {
         preset = "fade"
       >
         <div className = "container">
-          {mediaList.map((data) => {
+          {mediaList.map((data, index) => {
             return (
               <Media
                 currentMedia = {data}
+                currentMediaIndex = {index}
                 key = {data.src}
               />
             );
