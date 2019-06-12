@@ -1,13 +1,18 @@
 import './Media.css';
 
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 import {getVimeoOrYoutubeSrc} from 'dev-analise';
+import {isInViewPort, queryStringParse} from '../utils/helper';
 
-function Media ({currentMedia, currentMediaIndex}) {
+function Media ({currentMedia, currentMediaIndex, handleScroll, refFigure}) {
   const vimeoOrYoutubeSrc = getVimeoOrYoutubeSrc(currentMedia.src);
   return (
-    <figure className = "figure" id = {currentMediaIndex}>
+    <figure
+      className = "figure"
+      id = {currentMediaIndex}
+      ref = {refFigure}
+    >
       {vimeoOrYoutubeSrc ? (
         <div className = 'aspect__ratio__container'>
           <iframe
@@ -34,7 +39,8 @@ function Media ({currentMedia, currentMediaIndex}) {
 }
 
 Media.propTypes = {
-  currentMedia: PropTypes.instanceOf(Object),
+  currentMedia: PropTypes.instanceOf(Object).isRequired,
+  currentMediaIndex: PropTypes.number.isRequired,
 };
 
 export default Media;

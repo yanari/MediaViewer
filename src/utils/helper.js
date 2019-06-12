@@ -17,7 +17,7 @@ export function queryStringParse (locationSearch) {
 
 export function isInViewPort (ref) {
   if (ref.current === null) return false;
-  const bounding = ref.current.refCard.current.getBoundingClientRect();
+  const bounding = ref.current.getBoundingClientRect();
   return (
     bounding.top >= 0 && bounding.top <= (window.innerHeight || document.documentElement.clientHeight)
   );

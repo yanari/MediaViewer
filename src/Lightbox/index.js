@@ -5,9 +5,9 @@ import {createBrowserHistory} from 'history';
 import MountTransition from 'mount-transition';
 import PropTypes from 'prop-types';
 import CloseButton from '../components/CloseButton';
-import Media from '../components/Media';
+import Medias from '../components/Medias';
 import Portal from '../components/Portal';
-import {isInViewPort, queryStringParse} from '../utils/helper';
+import {queryStringParse} from '../utils/helper';
 
 class Lightbox extends Component {
   constructor (props) {
@@ -23,6 +23,7 @@ class Lightbox extends Component {
   componentDidMount () {
     if (this.queryStringParams['gallery'] === '1') {
       this.setState({isOpen: true});
+      document.body.style.overflow = 'hidden';
     }
   }
 
@@ -41,27 +42,22 @@ class Lightbox extends Component {
   handleClose = () => {
     this.props.onClose();
     this.setState({isOpen: this.props.isOpen});
+    document.body.style.overflow = 'auto';
   };
 
   render () {
     const {mediaList} = this.props;
     return (
       <MountTransition
-        className = "modal"
+        className = "gallery__modal"
         isMounted = {this.state.isOpen}
         preset = "fade"
       >
-        <div className = "container">
-          {mediaList.map((data, index) => {
-            return (
-              <Media
-                currentMedia = {data}
-                currentMediaIndex = {index}
-                key = {data.src}
-              />
-            );
-          })}
-        </div>
+        <Medias
+          currentMediaIndex = {this.props.currentMediaIndex}
+          history = {this.history}
+          mediaList = {mediaList}
+        />
         <div className = "close__button">
           <CloseButton onClick = {this.handleClose}/>
         </div>
