@@ -5,7 +5,7 @@ import {createBrowserHistory} from 'history';
 import MountTransition from 'mount-transition';
 import PropTypes from 'prop-types';
 import CloseButton from '../components/CloseButton';
-import Medias from '../components/Medias';
+import Media from '../components/Media';
 import Portal from '../components/Portal';
 import {queryStringParse} from '../utils/helper';
 
@@ -16,7 +16,6 @@ class Lightbox extends Component {
       isOpen: this.props.isOpen,
     };
     this.history = createBrowserHistory();
-    this.refDiv = React.createRef();
     this.queryStringParams = queryStringParse(this.history.location.search);
   }
 
@@ -53,11 +52,18 @@ class Lightbox extends Component {
         isMounted = {this.state.isOpen}
         preset = "fade"
       >
-        <Medias
-          currentMediaIndex = {this.props.currentMediaIndex}
-          history = {this.history}
-          mediaList = {mediaList}
-        />
+        <div className = "container">
+          {mediaList.map((data, index) => {
+            return (
+              <Media
+                currentMedia = {data}
+                currentMediaIndex = {index}
+                history = {this.history}
+                key = {data.src}
+              />
+            );
+          })}
+        </div>
         <div className = "close__button">
           <CloseButton onClick = {this.handleClose}/>
         </div>

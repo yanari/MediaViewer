@@ -1,5 +1,5 @@
 .figure {
-  margin-bottom: 32px;
+  height: 100vh;
   text-align: center;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .image {
-  max-height: 90vh;
+  max-height: 96vh;
   max-width: 100%;
 }
 
