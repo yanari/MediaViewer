@@ -17,10 +17,12 @@ class Lightbox extends Component {
     };
     this.history = createBrowserHistory();
     this.queryStringParams = queryStringParse(this.history.location.search);
+    console.log(this.history.location.search);
   }
 
   componentDidMount () {
     if (this.queryStringParams['gallery'] === '1') {
+    console.log(123);
       this.setState({isOpen: true});
       document.body.style.overflow = 'hidden';
     }

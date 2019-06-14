@@ -15,7 +15,7 @@
   margin: 48px;
 }
 
-.gallery__modal > .container > .figure {
+.gallery__modal > .container > * {
   margin: 32px 0;
 }
 

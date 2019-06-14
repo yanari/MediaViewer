@@ -1,6 +1,8 @@
 .figure {
-  height: 100vh;
-  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .aspect__ratio__container {
@@ -19,6 +21,7 @@
 }
 
 .image {
+  align-self: center;
   max-height: 96vh;
   max-width: 100%;
 }
@@ -26,6 +29,6 @@
 .caption {
   color: #999;
   font-size: var(--font-size-big-3);
-  margin-top: 16px;
+  margin-top: 24px;
   max-height: 100vh;
 }

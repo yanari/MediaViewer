@@ -22,7 +22,7 @@ class Media extends Component {
   handleScroll = () => {
     const {currentMediaIndex, history} = this.props;
     if (isInViewPort(this.refFigure)) {
-      history.push({search: '?gallery=1&#' + currentMediaIndex});
+      history.push({search: '?gallery=1#' + currentMediaIndex});
     }
   };
 
