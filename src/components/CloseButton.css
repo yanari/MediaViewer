@@ -1,12 +1,11 @@
 .close svg {
   color: white;
   cursor: pointer;
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.8));
-  height: 36px !important;
+  height: 32px !important;
   outline: none;
-  width: 36px !important;
+  width: 32px !important;
 }
 
 .close:hover svg {
-  color: gray;
+  filter: brightness(0.5);
 }

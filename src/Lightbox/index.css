@@ -12,11 +12,16 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 48px;
+  margin: 40px;
 }
 
 .gallery__modal > .container > * {
-  margin: 32px 0;
+  margin-bottom: 40px;
+  padding-top: 40px;
+}
+
+.gallery__modal > .container > .figure:first-of-type {
+  padding-top: 0;
 }
 
 .close__button {
