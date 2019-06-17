@@ -1,6 +1,7 @@
 import './Media.css';
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {getVimeoOrYoutubeSrc} from 'dev-analise';
 import {isInViewPort} from '../utils/helper';
 
@@ -44,12 +45,25 @@ class Media extends Component {
             />
           </div>
         ) : (
-          <img alt = {currentMedia.caption} src = {currentMedia.src}/>
+          <img
+            alt = {currentMedia.caption}
+            className = "image"
+            src = {currentMedia.src}
+          />
         )}
-        <figcaption>{currentMedia.caption}</figcaption>
+        {currentMedia.caption ? (
+          <figcaption className = "caption">
+            {currentMedia.caption}
+          </figcaption>
+        ) : null}
       </figure>
     );
   }
 }
+
+Media.propTypes = {
+  currentMedia: PropTypes.instanceOf(Object).isRequired,
+  currentMediaIndex: PropTypes.number.isRequired,
+};
 
 export default Media;

@@ -1,0 +1,18 @@
+.gallery__modal {
+  background: rgba(0, 0, 0, 0.9);
+  height: 100%;
+  overflow: scroll;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.gallery__modal > .media__container {
+  margin: 32px 96px;
+}
+
+.close__button {
+  position: fixed;
+  right: 8px;
+  top: 8px;
+}

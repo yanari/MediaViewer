@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from 'react';
-import Lightbox from './Lightbox/index';
+import LightBox from './LightBox/index';
 
 import './Example.css';
 
@@ -37,7 +37,7 @@ function Example () {
           </a>
         );
       })}
-      <Lightbox
+      <LightBox
         currentMediaIndex = {currentMediaIndex}
         isOpen = {show}
         mediaList = {mediaList}
