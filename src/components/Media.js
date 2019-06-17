@@ -29,7 +29,6 @@ class Media extends Component {
 
   render () {
     const {currentMedia, currentMediaIndex} = this.props;
-    console.log(currentMedia.caption ? currentMedia.caption.length : null);
     const vimeoOrYoutubeSrc = getVimeoOrYoutubeSrc(currentMedia.src);
     return (
       <figure
