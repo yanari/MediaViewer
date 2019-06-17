@@ -1,13 +1,13 @@
 .figure {
   display: inline-block;
-  height: 100vh;
-  margin: 32px 0;
+  height: 100%;
+  padding: 32px 0;
   text-align: center;
   width: 100%;
 }
 
 .figure > img {
-  max-height: 96%;
+  max-height: 90vh;
   max-width: 100%;
 }
 

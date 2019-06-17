@@ -22,3 +22,12 @@ export function isInViewPort (ref) {
     bounding.top >= 0 && bounding.top <= (window.innerHeight || document.documentElement.clientHeight)
   );
 }
+
+export function isInViewportPercentage (ref, percentage) {
+  if (ref.current === null) return false;
+  const bounding = ref.current.getBoundingClientRect();
+  const screenPercentage = percentage * (window.innerHeight || document.documentElement.clientHeight);
+  return (
+    bounding.bottom >= screenPercentage && bounding.top <= screenPercentage
+  );
+}

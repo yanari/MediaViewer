@@ -2,7 +2,7 @@ import './Media.css';
 
 import React, {Component} from 'react';
 import {getVimeoOrYoutubeSrc} from 'dev-analise';
-import {isInViewPort} from '../utils/helper';
+import {isInViewportPercentage} from '../utils/helper';
 
 class Media extends Component {
   constructor (props) {
@@ -12,21 +12,24 @@ class Media extends Component {
 
   componentDidMount () {
     document.querySelector('.gallery__modal').addEventListener('scroll', this.handleScroll);
+    document.body.style.overflow = 'hidden';
   }
 
   componentWillUnmount () {
     document.querySelector('.gallery__modal').removeEventListener('scroll', this.handleScroll);
+    document.body.style.overflow = 'auto';
   }
 
   handleScroll = () => {
     const {currentMediaIndex, history} = this.props;
-    if (isInViewPort(this.refFigure)) {
+    if (isInViewportPercentage(this.refFigure, .4)) {
       history.push({search: '?gallery=1#' + currentMediaIndex});
     }
   };
 
   render () {
     const {currentMedia, currentMediaIndex} = this.props;
+    console.log(currentMedia.caption ? currentMedia.caption.length : null);
     const vimeoOrYoutubeSrc = getVimeoOrYoutubeSrc(currentMedia.src);
     return (
       <figure

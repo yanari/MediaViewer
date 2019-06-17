@@ -17,29 +17,25 @@ class LightBox extends Component {
     this.history = createBrowserHistory();
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (queryStringParse(this.history.location.search)['gallery'] === '1') {
       this.setState({isOpen: true});
-      document.body.style.overflow = 'hidden';
     }
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps) {
     const {isOpen} = this.props;
     if (isOpen !== prevProps.isOpen) {
       this.setState({isOpen});
       this.history.push({
         search: isOpen ? '?gallery=1' : null
       });
-      if (isOpen) document.body.style.overflow = 'hidden';
-      else document.body.style.overflow = 'auto';
     }
   }
 
   handleClose = () => {
     this.props.onClose();
     this.setState({isOpen: this.props.isOpen});
-    document.body.style.overflow = 'auto';
   };
 
   render () {
@@ -61,7 +57,7 @@ class LightBox extends Component {
               />
             );
           })}
-          </div>
+        </div>
         <div className = "close__button">
           <CloseButton onClick = {this.handleClose}/>
         </div>
