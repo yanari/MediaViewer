@@ -23,6 +23,7 @@ class Media extends Component {
   handleScroll = () => {
     const {currentMediaIndex, history} = this.props;
     if (isInViewportPercentage(this.refFigure, .4)) {
+      // se for 20% a url da ultima imagem (se for pequena) nunca vai ser dela, por isso optamos por fingir que não vimos
       history.push({search: '?gallery=1#' + currentMediaIndex});
     }
   };
