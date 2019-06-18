@@ -3,18 +3,20 @@ import './index.css';
 import React, {Component} from 'react';
 import {createBrowserHistory} from 'history';
 import MountTransition from 'mount-transition';
+import PropTypes from 'prop-types';
 import CloseButton from '../components/CloseButton';
-import Media from '../components/Media';
+import MediaList from '../components/MediaList';
 import Portal from '../components/Portal';
 import {queryStringParse} from '../utils/helper';
 
-class LightBox extends Component {
+class MediaViewer extends Component {
   constructor (props) {
     super(props);
     this.state = {
       isOpen: this.props.isOpen,
     };
     this.history = createBrowserHistory();
+    // usando createBrowserHistory pq não da pra usar o withRouter fora de um Router
   }
 
   componentDidMount () {
@@ -23,7 +25,7 @@ class LightBox extends Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     const {isOpen} = this.props;
     if (isOpen !== prevProps.isOpen) {
       this.setState({isOpen});
@@ -34,7 +36,7 @@ class LightBox extends Component {
   }
 
   handleClose = () => {
-    this.props.onClose();
+    this.props.handleClose();
     this.setState({isOpen: this.props.isOpen});
   };
 
@@ -42,28 +44,25 @@ class LightBox extends Component {
     const {mediaList} = this.props;
     return (
       <MountTransition
-        className = "gallery__modal"
+        className = "my-media-viewer__media-viewer"
         isMounted = {this.state.isOpen}
         preset = "fade"
       >
-        <div className = "media__container">
-          {mediaList.map((data, index) => {
-            return (
-              <Media
-                key = {data.src}
-                currentMedia = {data}
-                currentMediaIndex = {index}
-                history = {this.history}
-              />
-            );
-          })}
+        <div className = "my-media-viewer__media__container">
+          <MediaList history = {this.history} mediaList = {mediaList}/>
         </div>
-        <div className = "close__button">
-          <CloseButton onClick = {this.handleClose}/>
+        <div className = "my-media-viewer__close__button">
+          <CloseButton handleClick = {this.handleClose}/>
         </div>
       </MountTransition>
     );
   }
 }
 
-export default Portal('portal')(LightBox);
+MediaViewer.propTypes = {
+  isOpen: PropTypes.bool,
+  mediaList: PropTypes.arrayOf(Object),
+  handleClose: PropTypes.func,
+};
+
+export default Portal('portal')(MediaViewer);

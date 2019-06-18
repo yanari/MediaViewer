@@ -4,16 +4,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgIcon from './SvgIcon';
 
-function CloseButton ({onClick}) {
+function CloseButton ({handleClick}) {
   return (
-    <button className = "close" onClick = {onClick}>
+    <button className = "my-media-viewer__close-btn" onClick = {handleClick}>
       <SvgIcon name = "feather-x"/>
     </button>
   );
 }
 
 CloseButton.propTypes = {
-  onClick: PropTypes.func,
+  handleClick: PropTypes.func,
 };
 
 export default CloseButton;

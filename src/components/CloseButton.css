@@ -1,11 +1,11 @@
-.close svg {
+.my-media-viewer__close-btn > .svg-icon > svg {
   color: white;
   cursor: pointer;
-  height: 32px !important;
+  height: 32px;
   outline: none;
-  width: 32px !important;
+  width: 32px;
 }
 
-.close:hover svg {
+.my-media-viewer__close-btn:hover > .svg-icon > svg {
   filter: brightness(0.5);
 }

@@ -1,4 +1,4 @@
-.gallery__modal {
+.my-media-viewer__media-viewer {
   background: rgba(0, 0, 0, 0.9);
   height: 100%;
   overflow: scroll;
@@ -7,11 +7,11 @@
   width: 100%;
 }
 
-.gallery__modal > .media__container {
-  margin: 48px 96px;
+.my-media-viewer__media-viewer > .my-media-viewer__media__container {
+  margin: 0 96px;
 }
 
-.close__button {
+.my-media-viewer__close__button {
   position: fixed;
   right: 8px;
   top: 8px;

@@ -1,23 +1,22 @@
-import './Media.css';
+import './MediaItem.css';
 
 import React, {Component} from 'react';
 import {getVimeoOrYoutubeSrc} from 'dev-analise';
+import PropTypes from 'prop-types';
 import {isInViewportPercentage} from '../utils/helper';
 
-class Media extends Component {
+class MediaItem extends Component {
   constructor (props) {
     super(props);
     this.refFigure = React.createRef();
   }
 
   componentDidMount () {
-    document.querySelector('.gallery__modal').addEventListener('scroll', this.handleScroll);
-    document.body.style.overflow = 'hidden';
+    document.querySelector('.my-media-viewer__media-viewer').addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount () {
-    document.querySelector('.gallery__modal').removeEventListener('scroll', this.handleScroll);
-    document.body.style.overflow = 'auto';
+    document.querySelector('.my-media-viewer__media-viewer').removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll = () => {
@@ -33,26 +32,37 @@ class Media extends Component {
     const vimeoOrYoutubeSrc = getVimeoOrYoutubeSrc(currentMedia.src);
     return (
       <figure
-        className = "figure"
+        className = "my-media-viewer__figure-container"
         id = {currentMediaIndex}
         ref = {this.refFigure}
       >
         {vimeoOrYoutubeSrc ? (
-          <div className = "aspect__ratio__container">
+          <div className = "my-media-viewer__aspect__ratio__container">
             <iframe
               allowFullScreen = {true}
-              className = "aspect__ratio__element"
+              className = "my-media-viewer__aspect__ratio__element"
               src = {vimeoOrYoutubeSrc}
               title = {currentMedia.src}
             />
           </div>
         ) : (
-          <img alt = {currentMedia.caption} src = {currentMedia.src}/>
+          <img
+            alt = {currentMedia.caption}
+            className = "my-media-viewer__img"
+            src = {currentMedia.src}
+          />
         )}
-        <figcaption>{currentMedia.caption}</figcaption>
+        <figcaption className = "my-media-viewer__figcaption-img">
+          {currentMedia.caption}
+        </figcaption>
       </figure>
     );
   }
 }
 
-export default Media;
+MediaItem.propTypes = {
+  currentMediaIndex: PropTypes.number,
+  history: PropTypes.instanceOf(Object), // React Router
+};
+
+export default MediaItem;

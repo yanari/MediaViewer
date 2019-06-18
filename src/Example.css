@@ -1,10 +1,10 @@
-.thumbnail {
+.my-media-viewer__thumbnail-example {
   display: block;
   margin-bottom: 8px;
   max-width: 144px;
 }
 
-.thumbnail > img {
+.my-media-viewer__thumbnail-example > .my-media-viewer__thumbnail-example__img {
   height: auto;
   vertical-align: middle;
   max-width: 100%;
